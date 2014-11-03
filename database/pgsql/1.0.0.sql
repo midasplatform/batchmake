@@ -1,6 +1,6 @@
 -- MIDAS Server. Copyright Kitware SAS. Licensed under the Apache License 2.0.
 
--- PostgreSQL database for the batchmake module, version 0.1.0
+-- PostgreSQL database for the batchmake module, version 1.0.0
 
 SET client_encoding = 'UTF8';
 SET default_with_oids = FALSE;
@@ -20,7 +20,8 @@ CREATE TABLE IF NOT EXISTS "batchmake_task" (
 CREATE TABLE IF NOT EXISTS "condor_dag" (
     "condor_dag_id" serial PRIMARY KEY,
     "batchmake_task_id" bigint NOT NULL,
-    "out_filename" text NOT NULL
+    "out_filename" text NOT NULL,
+    "dag_filename" text NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS "condor_job" (
@@ -29,5 +30,6 @@ CREATE TABLE IF NOT EXISTS "condor_job" (
     "jobdefinition_filename" text NOT NULL,
     "output_filename" text NOT NULL,
     "error_filename" text NOT NULL,
-    "log_filename" text NOT NULL
+    "log_filename" text NOT NULL,
+    "post_filename" text NOT NULL
 );

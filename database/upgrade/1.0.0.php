@@ -18,20 +18,7 @@
  limitations under the License.
 =========================================================================*/
 
-/** Upgrade the batchmake module to version 0.2.0. */
-class Batchmake_Upgrade_0_2_0 extends MIDASUpgrade
+/** Upgrade the batchmake module to version 1.0.0. */
+class Batchmake_Upgrade_1_0_0 extends MIDASUpgrade
 {
-    /** Upgrade a MySQL database. */
-    public function mysql()
-    {
-        $this->db->query("ALTER TABLE condor_dag ADD COLUMN dag_filename text NOT NULL;");
-        $this->db->query("ALTER TABLE condor_job ADD COLUMN post_filename text NOT NULL;");
-    }
-
-    /** Upgrade a PostgreSQL database. */
-    public function pgsql()
-    {
-        $this->db->query("ALTER TABLE condor_dag ADD COLUMN dag_filename text NOT NULL;");
-        $this->db->query("ALTER TABLE condor_job ADD COLUMN post_filename text NOT NULL;");
-    }
 }
